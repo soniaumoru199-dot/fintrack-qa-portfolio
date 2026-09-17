@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinTrack</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="container">
+    <section id="loginView" class="card">
+      <h1>FinTrack</h1><p>Personal finance dashboard</p>
+      <form id="loginForm">
+        <label>Email<input id="email" type="email" required /></label>
+        <label>Password<input id="password" type="password" required /></label>
+        <button type="submit">Sign in</button>
+        <p id="loginError" class="error" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="dashboard" hidden>
+      <header class="top"><div><h1>Dashboard</h1><p>Welcome back!</p></div><button id="logout">Log out</button></header>
+      <div class="cards"><div class="metric"><span>Income</span><strong id="income">₦0</strong></div><div class="metric"><span>Expenses</span><strong id="expenses">₦0</strong></div><div class="metric"><span>Balance</span><strong id="balance">₦0</strong></div></div>
+      <section class="card">
+        <h2>Add transaction</h2>
+        <form id="transactionForm" class="grid">
+          <label>Description<input id="description" required /></label>
+          <label>Amount<input id="amount" type="number" min="1" required /></label>
+          <label>Type<select id="type"><option value="expense">Expense</option><option value="income">Income</option></select></label>
+          <label>Category<select id="category"><option>Food</option><option>Transport</option><option>Education</option><option>Bills</option><option>Income</option></select></label>
+          <button type="submit">Add transaction</button>
+        </form>
+        <p id="formMessage" role="status"></p>
+      </section>
+      <section class="card"><h2>Transactions</h2><input id="search" placeholder="Search transactions..." /><table><thead><tr><th>Description</th><th>Category</th><th>Amount</th><th>Type</th></tr></thead><tbody id="transactionRows"></tbody></table></section>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
